@@ -68,6 +68,8 @@ static void log_init(void)
     APP_ERROR_CHECK(err_code);
 
     NRF_LOG_DEFAULT_BACKENDS_INIT();
+
+    nrf_delay_ms(1000);
 }
 
 
