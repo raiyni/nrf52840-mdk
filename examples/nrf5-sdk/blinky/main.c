@@ -57,6 +57,15 @@
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
+static void log_init(void)
+{
+    ret_code_t err_code = NRF_LOG_INIT(NULL);
+    APP_ERROR_CHECK(err_code);
+
+    NRF_LOG_DEFAULT_BACKENDS_INIT();
+}
+
+
 /**
  * @brief Function for application main entry.
  */
@@ -64,6 +73,8 @@ int main(void)
 {
     /* Configure board. */
     bsp_board_init(BSP_INIT_LEDS);
+
+    log_init();
 
     // Start execution.
     NRF_LOG_INFO("Blinky example started");
