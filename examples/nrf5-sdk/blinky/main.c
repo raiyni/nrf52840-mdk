@@ -54,6 +54,9 @@
 
 #include "nrf_delay.h"
 #include "boards.h"
+#include "nrf_drv_clock.h"
+#include "nrf_pwr_mgmt.h"
+#include "nrf_drv_qspi.h"
 
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
