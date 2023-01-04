@@ -61,6 +61,9 @@ int main(void)
     /* Configure board. */
     bsp_board_init(BSP_INIT_LEDS);
 
+    // Start execution.
+    NRF_LOG_INFO("Blinky example started");
+
     /* Toggle LEDs. */
     while (true)
     {
