@@ -90,6 +90,9 @@ int main(void)
         {
             for (int i = 0; i < LEDS_NUMBER; i++)
             {
+                
+                NRF_LOG_INFO("Changing light %d", i);
+                NRF_LOG_FLUSH();
                 bsp_board_led_invert(i);
                 nrf_delay_ms(500);
             }
