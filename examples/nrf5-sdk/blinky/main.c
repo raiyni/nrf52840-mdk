@@ -54,6 +54,9 @@
 
 #include "nrf_delay.h"
 #include "boards.h"
+#include "nrf_drv_clock.h"
+#include "nrf_pwr_mgmt.h"
+#include "nrf_drv_qspi.h"
 
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
@@ -66,7 +69,7 @@ static void log_init(void)
 
     NRF_LOG_DEFAULT_BACKENDS_INIT();
 
-    nrf_delay_ms(1000);
+    nrf_delay_ms(100);
 }
 
 
@@ -75,16 +78,22 @@ static void log_init(void)
  */
 int main(void)
 {
+    bsp_board_init(BSP_INIT_LEDS);
+
     log_init();
 
     // Start execution.
-    NRF_LOG_INFO("Blinky example started");
+    NRF_LOG_INFO(""
+                "Blinky example started");
 
     /* Toggle LEDs. */
     while (true)
     {
-            NRF_LOG_INFO("Changing light");
-            nrf_delay_ms(2000);
+        for (int i = 0; i < LEDS_NUMBER; i++)
+        {
+            bsp_board_led_invert(i);
+            nrf_delay_ms(500);
+        }
     }
 }
 
