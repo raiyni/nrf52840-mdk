@@ -78,9 +78,6 @@ static void log_init(void)
  */
 int main(void)
 {
-    /* Configure board. */
-    bsp_board_init(BSP_INIT_LEDS);
-
     log_init();
 
     // Start execution.
@@ -89,12 +86,8 @@ int main(void)
     /* Toggle LEDs. */
     while (true)
     {
-        for (int i = 0; i < LEDS_NUMBER; i++)
-        {
             NRF_LOG_INFO("Changing light");
-            bsp_board_led_invert(i);
             nrf_delay_ms(2000);
-        }
     }
 }
 
