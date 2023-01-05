@@ -80,16 +80,19 @@ int main(void)
     log_init();
 
     // Start execution.
-    NRF_LOG_INFO(""
-                "Blinky example started");
+    NRF_LOG_INFO("Blinky example started");
+    NRF_LOG_FLUSH();
 
     /* Toggle LEDs. */
     while (true)
     {
-        for (int i = 0; i < LEDS_NUMBER; i++)
+        if (NRF_LOG_PROCESS() == false)
         {
-            bsp_board_led_invert(i);
-            nrf_delay_ms(500);
+            for (int i = 0; i < LEDS_NUMBER; i++)
+            {
+                bsp_board_led_invert(i);
+                nrf_delay_ms(500);
+            }
         }
     }
 }
