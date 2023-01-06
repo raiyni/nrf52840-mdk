@@ -1,4 +1,4 @@
-PROJECT_NAME     := blinky_nrf52840_mdk
+PROJECT_NAME     := template
 TARGETS          := nrf52840_xxaa
 OUTPUT_DIRECTORY := _build
 
@@ -7,7 +7,7 @@ SDK_ROOT := $(MDK_ROOT)/nrf_sdks/nRF5_SDK_15.2.0_9412b96
 PROJ_DIR := .
 
 $(OUTPUT_DIRECTORY)/nrf52840_xxaa.out: \
-  LINKER_SCRIPT  := template_gcc_nrf52.ld
+  LINKER_SCRIPT  := memory_linker.ld
 
 # Source files common to all targets
 SRC_FILES += \
