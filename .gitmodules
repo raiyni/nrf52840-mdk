@@ -1,0 +1,3 @@
+[submodule "modules/nrf5-bme280-twi"]
+	path = modules/nrf5-bme280-twi
+	url = https://github.com/raiyni/nrf5-bme280-twi.git
